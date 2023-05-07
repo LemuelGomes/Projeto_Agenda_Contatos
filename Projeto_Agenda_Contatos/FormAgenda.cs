@@ -136,18 +136,6 @@ namespace Projeto_Agenda_Contatos
             }
             atualizar_dataGRID();
         }
-
-        private void groupBoxSTATUS_Enter(object sender, EventArgs e)
-        {
-            if (radioButtonDESBLOQUEADO.Checked)
-            {
-                radioButtonBLOQUEADO.Checked = true;
-            }
-            else
-            {
-                radioButtonDESBLOQUEADO.Checked = false;
-            }
-        }
         private void dataGridViewCONTATOS_MouseClick(object sender, MouseEventArgs e)
         {
             textBoxID.Text = dataGridViewCONTATOS.CurrentRow.Cells[0].Value.ToString();
@@ -167,10 +155,12 @@ namespace Projeto_Agenda_Contatos
                 conexao.Open();
                 comando.CommandText = "UPDATE contatos SET nome = '" + textBoxNOME.Text + "', sobrenome = '" + textBoxSOBRENOME.Text + "', telefone = '" + textBoxTELEFONE.Text + "', celular = '" + textBoxCELULAR.Text + "', email = '" + textBoxEMAIL.Text + "', linkedin '" + textBoxLINKEDIN.Text + "', status = '" + groupBoxSTATUS.Text + "' WHERE id = '" + textBoxID.Text + "';";
                 comando.ExecuteNonQuery();
+
             }
             catch (Exception erro)
-            {               
-                MessageBox.Show("Seu contato não foi atualizado na agenda! Verifique com o administrador!");
+            {
+                MessageBox.Show(erro.Message);
+                //MessageBox.Show("Seu contato não foi atualizado na agenda! Verifique com o administrador!");
             }
             finally
             {
@@ -182,8 +172,52 @@ namespace Projeto_Agenda_Contatos
                 textBoxTELEFONE.Clear();
                 textBoxCELULAR.Clear();
                 textBoxEMAIL.Clear();
-                textBoxLINKEDIN.Clear();                
+                textBoxLINKEDIN.Clear();
             }
+        }
+
+        private void radioButtonDESBLOQUEADO_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonDESBLOQUEADO.Checked)
+            {
+                radioButtonBLOQUEADO.Checked = false;
+            }
+        }
+
+        private void radioButtonBLOQUEADO_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonBLOQUEADO.Checked)
+            {
+                radioButtonDESBLOQUEADO.Checked = false;
+            }
+        }
+
+        private void groupBoxSTATUS_Enter(object sender, EventArgs e)
+        {
+            if (radioButtonDESBLOQUEADO.Checked)
+            {
+                radioButtonBLOQUEADO.Checked = false;
+            }
+            if (radioButtonBLOQUEADO.Checked)
+            {
+                radioButtonDESBLOQUEADO.Checked = false;
+            }
+        }
+
+        private void buttonLIMPAR_Click(object sender, EventArgs e)
+        {
+            textBoxID.Clear();
+            textBoxNOME.Clear();
+            textBoxSOBRENOME.Clear();
+            textBoxTELEFONE.Clear();
+            textBoxCELULAR.Clear();
+            textBoxEMAIL.Clear();
+            textBoxLINKEDIN.Clear();
+        }
+
+        private void buttonFECHAR_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

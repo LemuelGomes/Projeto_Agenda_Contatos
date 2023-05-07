@@ -53,6 +53,8 @@
             buttonEXCLUIR = new Button();
             textBoxID = new TextBox();
             label7 = new Label();
+            buttonLIMPAR = new Button();
+            buttonFECHAR = new Button();
             groupBoxSTATUS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCONTATOS).BeginInit();
             SuspendLayout();
@@ -219,33 +221,26 @@
             // radioButtonBLOQUEADO
             // 
             radioButtonBLOQUEADO.AutoSize = true;
-            radioButtonBLOQUEADO.BackgroundImageLayout = ImageLayout.None;
-            radioButtonBLOQUEADO.FlatAppearance.BorderSize = 0;
-            radioButtonBLOQUEADO.FlatStyle = FlatStyle.Flat;
             radioButtonBLOQUEADO.Location = new Point(10, 62);
             radioButtonBLOQUEADO.Name = "radioButtonBLOQUEADO";
-            radioButtonBLOQUEADO.Size = new Size(119, 28);
+            radioButtonBLOQUEADO.Size = new Size(120, 28);
             radioButtonBLOQUEADO.TabIndex = 1;
+            radioButtonBLOQUEADO.TabStop = true;
             radioButtonBLOQUEADO.Text = "Bloqueado";
             radioButtonBLOQUEADO.UseVisualStyleBackColor = true;
+            radioButtonBLOQUEADO.CheckedChanged += radioButtonBLOQUEADO_CheckedChanged;
             // 
             // radioButtonDESBLOQUEADO
             // 
             radioButtonDESBLOQUEADO.AutoSize = true;
-            radioButtonDESBLOQUEADO.BackColor = Color.Transparent;
-            radioButtonDESBLOQUEADO.BackgroundImageLayout = ImageLayout.None;
-            radioButtonDESBLOQUEADO.Checked = true;
-            radioButtonDESBLOQUEADO.FlatAppearance.BorderSize = 0;
-            radioButtonDESBLOQUEADO.FlatStyle = FlatStyle.Flat;
-            radioButtonDESBLOQUEADO.ForeColor = Color.White;
             radioButtonDESBLOQUEADO.Location = new Point(10, 28);
             radioButtonDESBLOQUEADO.Name = "radioButtonDESBLOQUEADO";
-            radioButtonDESBLOQUEADO.Size = new Size(151, 28);
+            radioButtonDESBLOQUEADO.Size = new Size(152, 28);
             radioButtonDESBLOQUEADO.TabIndex = 0;
             radioButtonDESBLOQUEADO.TabStop = true;
             radioButtonDESBLOQUEADO.Text = "Desbloqueado";
-            radioButtonDESBLOQUEADO.TextAlign = ContentAlignment.MiddleCenter;
-            radioButtonDESBLOQUEADO.UseVisualStyleBackColor = false;
+            radioButtonDESBLOQUEADO.UseVisualStyleBackColor = true;
+            radioButtonDESBLOQUEADO.CheckedChanged += radioButtonDESBLOQUEADO_CheckedChanged;
             // 
             // dataGridViewCONTATOS
             // 
@@ -280,7 +275,7 @@
             buttonCADASTRAR.FlatStyle = FlatStyle.Flat;
             buttonCADASTRAR.ForeColor = Color.White;
             buttonCADASTRAR.Image = Properties.Resources.contato_png;
-            buttonCADASTRAR.Location = new Point(479, 555);
+            buttonCADASTRAR.Location = new Point(412, 555);
             buttonCADASTRAR.Name = "buttonCADASTRAR";
             buttonCADASTRAR.Size = new Size(140, 32);
             buttonCADASTRAR.TabIndex = 16;
@@ -296,7 +291,7 @@
             buttonALTERAR.FlatStyle = FlatStyle.Flat;
             buttonALTERAR.ForeColor = Color.White;
             buttonALTERAR.Image = Properties.Resources.troca__1_;
-            buttonALTERAR.Location = new Point(642, 555);
+            buttonALTERAR.Location = new Point(569, 555);
             buttonALTERAR.Name = "buttonALTERAR";
             buttonALTERAR.Size = new Size(122, 32);
             buttonALTERAR.TabIndex = 17;
@@ -312,7 +307,7 @@
             buttonEXCLUIR.FlatStyle = FlatStyle.Flat;
             buttonEXCLUIR.ForeColor = Color.Transparent;
             buttonEXCLUIR.Image = Properties.Resources.contato;
-            buttonEXCLUIR.Location = new Point(793, 555);
+            buttonEXCLUIR.Location = new Point(715, 555);
             buttonEXCLUIR.Name = "buttonEXCLUIR";
             buttonEXCLUIR.Size = new Size(114, 32);
             buttonEXCLUIR.TabIndex = 18;
@@ -323,7 +318,7 @@
             // 
             // textBoxID
             // 
-            textBoxID.Location = new Point(714, 510);
+            textBoxID.Location = new Point(639, 520);
             textBoxID.Name = "textBoxID";
             textBoxID.Size = new Size(110, 29);
             textBoxID.TabIndex = 19;
@@ -335,12 +330,45 @@
             label7.FlatStyle = FlatStyle.Flat;
             label7.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(754, 483);
+            label7.Location = new Point(680, 493);
             label7.Name = "label7";
             label7.Size = new Size(27, 24);
             label7.TabIndex = 20;
             label7.Text = "ID";
             label7.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // buttonLIMPAR
+            // 
+            buttonLIMPAR.BackColor = Color.Transparent;
+            buttonLIMPAR.FlatAppearance.BorderSize = 0;
+            buttonLIMPAR.FlatStyle = FlatStyle.Flat;
+            buttonLIMPAR.ForeColor = Color.Transparent;
+            buttonLIMPAR.Image = Properties.Resources.esfregar;
+            buttonLIMPAR.Location = new Point(856, 555);
+            buttonLIMPAR.Name = "buttonLIMPAR";
+            buttonLIMPAR.Size = new Size(114, 32);
+            buttonLIMPAR.TabIndex = 21;
+            buttonLIMPAR.Text = "Limpar";
+            buttonLIMPAR.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonLIMPAR.UseVisualStyleBackColor = false;
+            buttonLIMPAR.Click += buttonLIMPAR_Click;
+            // 
+            // buttonFECHAR
+            // 
+            buttonFECHAR.BackColor = Color.Transparent;
+            buttonFECHAR.FlatAppearance.BorderSize = 0;
+            buttonFECHAR.FlatStyle = FlatStyle.Flat;
+            buttonFECHAR.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonFECHAR.ForeColor = Color.Transparent;
+            buttonFECHAR.Image = Properties.Resources.saida;
+            buttonFECHAR.Location = new Point(1039, 555);
+            buttonFECHAR.Name = "buttonFECHAR";
+            buttonFECHAR.Size = new Size(114, 32);
+            buttonFECHAR.TabIndex = 22;
+            buttonFECHAR.Text = "Fechar";
+            buttonFECHAR.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonFECHAR.UseVisualStyleBackColor = false;
+            buttonFECHAR.Click += buttonFECHAR_Click;
             // 
             // FormAGENDA
             // 
@@ -349,6 +377,8 @@
             BackgroundImage = Properties.Resources._3257989;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1156, 599);
+            Controls.Add(buttonFECHAR);
+            Controls.Add(buttonLIMPAR);
             Controls.Add(label7);
             Controls.Add(textBoxID);
             Controls.Add(buttonEXCLUIR);
@@ -398,13 +428,15 @@
         private Label label5;
         private Label label6;
         private GroupBox groupBoxSTATUS;
-        private RadioButton radioButtonBLOQUEADO;
-        private RadioButton radioButtonDESBLOQUEADO;
         private DataGridView dataGridViewCONTATOS;
         private Button buttonCADASTRAR;
         private Button buttonALTERAR;
         private Button buttonEXCLUIR;
         private TextBox textBoxID;
         private Label label7;
+        private RadioButton radioButtonBLOQUEADO;
+        private RadioButton radioButtonDESBLOQUEADO;
+        private Button buttonLIMPAR;
+        private Button buttonFECHAR;
     }
 }
