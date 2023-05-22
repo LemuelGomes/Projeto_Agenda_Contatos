@@ -53,6 +53,17 @@ namespace Projeto_Agenda_Contatos
         {
             bool novoContato = true;
 
+            string bloqueado = "sim";
+
+            if (radioButtonBLOQUEADO.Checked)
+            {
+                bloqueado = "sim";
+            }
+            else
+            {
+                bloqueado = "não";
+            }
+
             if (textBoxEMAIL.Text != "" && textBoxCELULAR.Text != "")
             {
                 if (novoContato)
@@ -79,7 +90,7 @@ namespace Projeto_Agenda_Contatos
                         conexao.Close();
                     }
 
-                    if (novoContato == true && textBoxEMAIL.Text != "" && textBoxCELULAR.Text != "")
+                    if (novoContato == true && textBoxNOME.Text != "" && (textBoxTELEFONE.Text != "" || textBoxCELULAR.Text != "") && (radioButtonBLOQUEADO.Checked || radioButtonDESBLOQUEADO.Checked))
                     {
                         try
                         {
@@ -145,7 +156,16 @@ namespace Projeto_Agenda_Contatos
             textBoxCELULAR.Text = dataGridViewCONTATOS.CurrentRow.Cells[4].Value.ToString();
             textBoxEMAIL.Text = dataGridViewCONTATOS.CurrentRow.Cells[5].Value.ToString();
             textBoxLINKEDIN.Text = dataGridViewCONTATOS.CurrentRow.Cells[6].Value.ToString();
-            groupBoxSTATUS.Text = dataGridViewCONTATOS.CurrentRow.Cells[7].Value.ToString();
+            if (dataGridViewCONTATOS.CurrentRow.Cells[7].Value.ToString() == "sim")
+            {
+                radioButtonBLOQUEADO.Checked = true;
+                radioButtonDESBLOQUEADO.Checked = false;
+            }
+            else
+            {
+                radioButtonBLOQUEADO.Checked = false;
+                radioButtonDESBLOQUEADO.Checked = true;
+            }           
         }
 
         private void buttonALTERAR_Click(object sender, EventArgs e)
@@ -174,36 +194,7 @@ namespace Projeto_Agenda_Contatos
                 textBoxEMAIL.Clear();
                 textBoxLINKEDIN.Clear();
             }
-        }
-
-        private void radioButtonDESBLOQUEADO_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButtonDESBLOQUEADO.Checked)
-            {
-                radioButtonBLOQUEADO.Checked = false;
-            }
-        }
-
-        private void radioButtonBLOQUEADO_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButtonBLOQUEADO.Checked)
-            {
-                radioButtonDESBLOQUEADO.Checked = false;
-            }
-        }
-
-        private void groupBoxSTATUS_Enter(object sender, EventArgs e)
-        {
-            if (radioButtonDESBLOQUEADO.Checked)
-            {
-                radioButtonBLOQUEADO.Checked = false;
-            }
-            if (radioButtonBLOQUEADO.Checked)
-            {
-                radioButtonDESBLOQUEADO.Checked = false;
-            }
-        }
-
+        }             
         private void buttonLIMPAR_Click(object sender, EventArgs e)
         {
             textBoxID.Clear();
